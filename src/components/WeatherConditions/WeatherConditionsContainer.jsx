@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './WeatherConditions.module.css';
 import {connect} from "react-redux";
-import {requestWeatherConditions} from "../../redux/weatherConditionsReducer";
+import {requestWeather} from "../../redux/weatherReducer";
 import clearWeatherIcon from './../../assets/images/clear.png';
 import cloudsWeatherIcon from './../../assets/images/clouds.png';
 import drizzleWeatherIcon from './../../assets/images/drizzle.png';
@@ -13,7 +13,7 @@ import thunderstormWeatherIcon from './../../assets/images/thunderstorm.png';
 class WeatherConditionsContainer extends React.Component {
 
     componentDidMount() {
-        this.props.requestWeatherConditions();
+        this.props.requestWeather();
     }
 
     render() {
@@ -65,8 +65,8 @@ const WeatherConditions = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        weatherConditions: state.weatherConditions.weatherConditions
+        weatherConditions: state.weather.weatherConditions
     }
 }
 
-export default connect(mapStateToProps, {requestWeatherConditions})(WeatherConditionsContainer);
+export default connect(mapStateToProps, {requestWeather})(WeatherConditionsContainer);

@@ -1,11 +1,10 @@
-import currentTempReducer from './currentTempReducer';
+import weatherReducer from './weatherReducer';
 import {applyMiddleware, combineReducers, createStore} from 'redux';
 import thunkMiddleware from "redux-thunk";
-import weatherConditionsReducer from "./weatherConditionsReducer";
 
 let reducers = combineReducers({
-    currentTemp: currentTempReducer,
-    weatherConditions: weatherConditionsReducer
+    weather: weatherReducer,
+
 })
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware));

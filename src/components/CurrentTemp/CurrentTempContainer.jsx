@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './CurrentTemp.module.css';
 import {connect} from "react-redux";
-import {requestCurrentTemp} from "../../redux/currentTempReducer";
+import {requestWeather} from "../../redux/weatherReducer";
 
 class CurrentTempContainer extends React.Component {
 
     componentDidMount() {
-        this.props.requestCurrentTemp();
+        this.props.requestWeather();
     }
 
     render() {
@@ -31,10 +31,10 @@ const CurrentTemp = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        currentTemp: state.currentTemp.currentTemp
+        currentTemp: state.weather.currentTemp
     }
 }
 
-export default connect(mapStateToProps, {requestCurrentTemp})(CurrentTempContainer);
+export default connect(mapStateToProps, {requestWeather})(CurrentTempContainer);
 
 
