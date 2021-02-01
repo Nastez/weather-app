@@ -4,3 +4,9 @@
     background-color: #1eb8ea;
     margin: 0 auto;
 }
+
+.appFlexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
