@@ -28,16 +28,16 @@ const weatherReducer = (state = initialState, action) => {
 // Action Creators
 
 export const setCurrentTemp = (actionCurrentTemp) => ({type: SET_CURRENT_TEMP, actionCurrentTemp: actionCurrentTemp});
-const setCurrentWeatherConditionsAC = (weatherConditions) => ({
+export const setCurrentWeatherConditionsAC = (weatherConditions) => ({
     type: SET_CURRENT_WEATHER_CONDITIONS,
     weatherConditions: weatherConditions
 });
 
 // Thunk Creators
 
-export const requestWeather = () => {
+export const requestWeather = (lat, lon) => {
     return async (dispatch) => {
-        let data =  await weatherAPI.getCurrentWeather();
+        let data = await weatherAPI.getCurrentWeather(lat, lon);
         dispatch(setCurrentTemp(data.main.temp));
         dispatch(setCurrentWeatherConditionsAC(data.weather[0].main))
     }

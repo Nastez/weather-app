@@ -13,7 +13,7 @@ import thunderstormWeatherIcon from './../../assets/images/thunderstorm.png';
 class WeatherConditionsContainer extends React.Component {
 
     componentDidMount() {
-        this.props.requestWeather();
+        this.props.requestWeather(this.props.lat, this.props.lon);
     }
 
     render() {
@@ -30,13 +30,13 @@ const WeatherConditions = (props) => {
     const getWeatherConditionsImg = () => {
         switch (conditionsValue) {
             case 'Thunderstorm':
-                return <img src={thunderstormWeatherIcon}/>;
+                return <img alt='' src={thunderstormWeatherIcon}/>;
             case 'Drizzle':
-                return <img src={drizzleWeatherIcon}/>;
+                return <img alt='' src={drizzleWeatherIcon}/>;
             case 'Rain':
-                return <img src={rainWeatherIcon}/>;
+                return <img alt='' src={rainWeatherIcon}/>;
             case 'Snow':
-                return <img src={snowWeatherIcon}/>;
+                return <img alt='' src={snowWeatherIcon}/>;
             case 'Mist':
             case 'Smoke':
             case 'Haze':
@@ -46,11 +46,11 @@ const WeatherConditions = (props) => {
             case 'Ash':
             case 'Squall':
             case 'Tornado':
-                return <img src={mistWeatherIcon}/>;
+                return <img alt='' src={mistWeatherIcon}/>;
             case 'Clear':
-                return <img src={clearWeatherIcon}/>;
+                return <img alt='' src={clearWeatherIcon}/>;
             case 'Clouds':
-                return <img src={cloudsWeatherIcon}/>;
+                return <img alt='' src={cloudsWeatherIcon}/>;
             default:
                 return null;
         }
@@ -65,7 +65,9 @@ const WeatherConditions = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        weatherConditions: state.weather.weatherConditions
+        weatherConditions: state.weather.weatherConditions,
+        lat: state.cities.lat,
+        lon: state.cities.lon
     }
 }
 

@@ -6,13 +6,13 @@ import {requestWeather} from "../../redux/weatherReducer";
 class CurrentTempContainer extends React.Component {
 
     componentDidMount() {
-        this.props.requestWeather();
+        this.props.requestWeather(this.props.lat, this.props.lon);
     }
 
     render() {
         return (
             <div>
-                <CurrentTemp currentTemp={this.props.currentTemp}/>
+                <CurrentTemp lat={this.props.lat} lon={this.props.lon} currentTemp={this.props.currentTemp}/>
             </div>
         )
     }
@@ -23,15 +23,26 @@ const CurrentTemp = (props) => {
     let roundedCurrentTemp = Math.floor(props.currentTemp) + '\u00B0';
 
     return (
-        <div className={s.currentTempText}>
-            {roundedCurrentTemp}
+        <div>
+            <div className={s.currentTempText}>
+                {roundedCurrentTemp}
+
+            </div>
+            <div>
+                {props.lat}
+            </div>
+            <div>
+                {props.lon}
+            </div>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        currentTemp: state.weather.currentTemp
+        currentTemp: state.weather.currentTemp,
+        lat: state.cities.lat,
+        lon: state.cities.lon
     }
 }
 
