@@ -1,5 +1,10 @@
 .currentTempText {
     color: white;
-    font-size: 120px;
+    font-size: calc(70px + 50 * (100vw / 700));
+}
 
+@media (max-width: 767px) {
+    .currentTempText {
+        font-size: calc(70px + (50 + 50 * 0.7) * ((100vw - 320px) / 700));
+    }
 }

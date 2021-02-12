@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <WeatherApp />
+    <WeatherApp  />
   </React.StrictMode>,
   document.getElementById('root')
 );

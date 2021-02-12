@@ -1,27 +1,22 @@
-/*
-import React from 'react';
+import React, {useEffect} from 'react';
 import s from './WeatherConditions.module.css';
 import {connect} from "react-redux";
 import {requestWeather} from "../../redux/weatherReducer";
-import clearWeatherIcon from './../../assets/images/clear.png';
-import cloudsWeatherIcon from './../../assets/images/clouds.png';
-import drizzleWeatherIcon from './../../assets/images/drizzle.png';
-import mistWeatherIcon from './../../assets/images/mist.png';
-import rainWeatherIcon from './../../assets/images/rain.png';
-import snowWeatherIcon from './../../assets/images/snow.png';
-import thunderstormWeatherIcon from './../../assets/images/thunderstorm.png';
+import clearWeatherIcon from './../../assets/images/clear.svg';
+import cloudsWeatherIcon from './../../assets/images/clouds.svg';
+import drizzleWeatherIcon from './../../assets/images/drizzle.svg';
+import mistWeatherIcon from './../../assets/images/mist.svg';
+import rainWeatherIcon from './../../assets/images/rain.svg';
+import snowWeatherIcon from './../../assets/images/snow.svg';
+import thunderstormWeatherIcon from './../../assets/images/thunderstorm.svg';
 
-class WeatherConditionsContainer extends React.Component {
+const WeatherConditionsContainerWithHooks = ({weatherConditions, lat, lon, requestWeather}) => {
 
-    componentDidMount() {
-        this.props.requestWeather(this.props.lat, this.props.lon);
-    }
+    useEffect(() => {requestWeather(lat, lon)}, [requestWeather, lat, lon])
 
-    render() {
-        return (
-            <WeatherConditions conditions={this.props.weatherConditions}/>
-        )
-    }
+    return (
+        <WeatherConditions conditions={weatherConditions}/>
+    )
 }
 
 const WeatherConditions = (props) => {
@@ -72,4 +67,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {requestWeather})(WeatherConditionsContainer);*/
+export default connect(mapStateToProps, {requestWeather})(WeatherConditionsContainerWithHooks);

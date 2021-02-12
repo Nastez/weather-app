@@ -1,5 +1,5 @@
-import {getCityTC} from "./citiesReducer";
-import {requestWeather} from "./weatherReducer";
+import {getCityTC} from './citiesReducer';
+import {requestWeather} from './weatherReducer';
 
 const INITIALIZED_SUCCESS = 'INITIALIZED_SUCCESS';
 

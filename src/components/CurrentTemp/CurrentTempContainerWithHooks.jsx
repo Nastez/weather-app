@@ -1,22 +1,19 @@
-/*
-import React from 'react';
+import React, {useEffect} from 'react';
 import s from './CurrentTemp.module.css';
 import {connect} from 'react-redux';
 import {requestWeather} from '../../redux/weatherReducer';
 
-class CurrentTempContainer extends React.Component {
+const CurrentTempContainerWithHooks = ({lat, lon, requestWeather, currentTemp}) => {
 
-    componentDidMount() {
-        this.props.requestWeather(this.props.lat, this.props.lon);
-    }
+    useEffect(() => {
+        requestWeather(lat, lon)
+    }, [lat, lon, requestWeather])
 
-    render() {
-        return (
-            <div>
-                <CurrentTemp lat={this.props.lat} lon={this.props.lon} currentTemp={this.props.currentTemp}/>
-            </div>
-        )
-    }
+    return (
+        <div>
+            <CurrentTemp lat={lat} lon={lon} currentTemp={currentTemp}/>
+        </div>
+    )
 }
 
 const CurrentTemp = (props) => {
@@ -40,7 +37,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {requestWeather})(CurrentTempContainer);
-
-
-*/
+export default connect(mapStateToProps, {requestWeather})(CurrentTempContainerWithHooks);

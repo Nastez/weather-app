@@ -1,5 +1,6 @@
 import React from 'react';
 import {Field, Form, Formik} from 'formik';
+import s from './Cities.module.css';
 
 const Cities = (props) => {
 
@@ -8,8 +9,8 @@ const Cities = (props) => {
 
     }
     return (
-        <div>
-            <CitiesForm onSubmit={sendCity}/>
+        <div >
+            <CitiesForm onSubmit={sendCity} />
         </div>
     )
 }
@@ -17,10 +18,10 @@ const Cities = (props) => {
 const CitiesForm = (props) => {
     return (
         <Formik initialValues={{city: ''}} onSubmit={props.onSubmit}>
-            <Form>
-                <label htmlFor='city'>Cities</label>
-                <Field name='city' type='text'/>
-                <button type='submit'>Submit</button>
+            <Form className={s.cityForm}>
+                <label htmlFor='city' className={s.cityFormText}>City</label>
+                <Field className={s.cityFormField} name='city' type='text' />
+                <button type='submit' className={s.cityFormButton}>Submit</button>
             </Form>
         </Formik>
     )

@@ -1,4 +1,4 @@
-import {weatherAPI} from "../api/api";
+import {weatherAPI} from '../api/api';
 
 const SET_CURRENT_TEMP = 'SET_CURRENT_TEMP';
 const SET_CURRENT_WEATHER_CONDITIONS = 'SET_CURRENT_WEATHER_CONDITIONS';

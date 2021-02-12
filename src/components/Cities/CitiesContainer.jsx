@@ -1,7 +1,8 @@
+/*
 import React from 'react';
-import Cities from "./Cities";
-import {connect} from "react-redux";
-import {getCityTC} from "../../redux/citiesReducer";
+import Cities from './Cities';
+import {connect} from 'react-redux';
+import {getCityTC} from '../../redux/citiesReducer';
 
 class CitiesContainer extends React.Component {
 
@@ -26,4 +27,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {getCityTC})(CitiesContainer);
+export default connect(mapStateToProps, {getCityTC})(CitiesContainer);*/

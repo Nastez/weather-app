@@ -1,5 +1,4 @@
 import React from 'react';
-import './components/App/App.module.css';
 import {Provider} from "react-redux";
 import store from "./redux/redux-store";
 import AppContainer from "./components/App/App";

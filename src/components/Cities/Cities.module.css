@@ -1,0 +1,21 @@
+
+.cityForm {
+    margin: 10px;
+}
+
+.cityFormText {
+    color: white;
+}
+
+.cityFormField {
+    margin-left: 10px;
+}
+
+.cityFormButton {
+    margin-left: 10px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 0.35em 1.2em;
+}
+

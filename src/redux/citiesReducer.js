@@ -1,5 +1,5 @@
-import {citiesAPI} from "../api/api";
-import {requestWeather} from "./weatherReducer";
+import {citiesAPI} from '../api/api';
+import {requestWeather} from './weatherReducer';
 
 const SET_CITY = 'SET_CITY';
 const SET_LATITUDE_LONGITUDE = 'SET_LATITUDE_LONGITUDE';

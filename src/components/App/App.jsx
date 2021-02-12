@@ -1,30 +1,34 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import s from './App.module.css'
-import WeatherConditionsContainer from "../WeatherConditions/WeatherConditionsContainer";
-import CurrentTempContainer from "../CurrentTemp/CurrentTempContainer";
-import CitiesContainer from "../Cities/CitiesContainer";
-import {connect} from "react-redux";
-import {initializeApp} from "../../redux/app-reducer";
-import Preloader from "../common/Preloader/Preloader";
+import {connect} from 'react-redux';
+import {initializeApp} from '../../redux/app-reducer';
+import Preloader from '../common/Preloader/Preloader';
+import CurrentTempContainerWithHooks from "../CurrentTemp/CurrentTempContainerWithHooks";
+import WeatherConditionsContainerWithHooks from "../WeatherConditions/WeatherConditionsContainerWithHooks";
+import CitiesContainerWithHooks from "../Cities/CitiesContainerWithHooks";
 
-class App extends React.Component {
+const App = ({initializeApp, city, lat, lon, isInitialized}) => {
 
-    componentDidMount() {
-        this.props.initializeApp(this.props.city, this.props.lat, this.props.lon);
+    useEffect(() => {
+        initializeApp(city, lat, lon)
+    }, [initializeApp, city, lat, lon])
+
+    if (!isInitialized) {
+        return <Preloader/>
     }
+    return (
+        <div className={s.blockContainer}>
+            <div className={s.appFlexRow}>
+                <CurrentTempContainerWithHooks/>
+                <WeatherConditionsContainerWithHooks/>
 
-    render() {
-        if (!this.props.isInitialized) {
-            return <Preloader/>
-        }
-        return (
-            <div className={`${s.appWrapper} ${s.appFlexRow}`}>
-                <CurrentTempContainer/>
-                <WeatherConditionsContainer/>
-                <CitiesContainer/>
             </div>
-        )
-    }
+            <div>
+                <CitiesContainerWithHooks/>
+            </div>
+        </div>
+    )
+
 }
 
 const mapStateToProps = (state) => {
@@ -39,3 +43,4 @@ const mapStateToProps = (state) => {
 const AppContainer = connect(mapStateToProps, {initializeApp})(App);
 
 export default AppContainer;
+

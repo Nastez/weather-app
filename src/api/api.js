@@ -1,4 +1,4 @@
-import * as axios from "axios";
+import * as axios from 'axios';
 
 const api_key_weather = process.env.REACT_APP_API_WEATHER_KEY;
 const api_key_cities = process.env.REACT_APP_API_CITIES_KEY;
